@@ -524,8 +524,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			 * 2. xml解析
 			 * 	  bean、import标签解析
 			 * 	  自定义标签解析，如<context:component-scan base-package="com.xxx.yyy"/>
-			 * 	  自定义标签解析流程：
-			 * 	  	1>
+			 *
 			 */
 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
