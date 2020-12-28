@@ -512,8 +512,10 @@ public class BeanDefinitionParserDelegate {
 		}
 
 		try {
+			// 生成GenericBeanDefinition对象，封装beanClass及className
 			AbstractBeanDefinition bd = createBeanDefinition(className, parent);
 
+			// GenericBeanDefinition对象相关属性赋值，类似scope、lazy-init、init-method、destory-method
 			parseBeanDefinitionAttributes(ele, beanName, containingBean, bd);
 			bd.setDescription(DomUtils.getChildElementValueByTagName(ele, DESCRIPTION_ELEMENT));
 
@@ -522,6 +524,7 @@ public class BeanDefinitionParserDelegate {
 			parseReplacedMethodSubElements(ele, bd.getMethodOverrides());
 
 			parseConstructorArgElements(ele, bd);
+			// 解析bean中property标签
 			parsePropertyElements(ele, bd);
 			parseQualifierElements(ele, bd);
 
@@ -1379,6 +1382,7 @@ public class BeanDefinitionParserDelegate {
 	 */
 	@Nullable
 	public BeanDefinition parseCustomElement(Element ele, @Nullable BeanDefinition containingBd) {
+		// 通过获取namespaceuri
 		String namespaceUri = getNamespaceURI(ele);
 		if (namespaceUri == null) {
 			return null;
