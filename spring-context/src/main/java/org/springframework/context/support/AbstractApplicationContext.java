@@ -541,10 +541,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				// Register bean processors that intercept bean creation.
 				registerBeanPostProcessors(beanFactory);
 
-				// Initialize message source for this context.
+				// 国际化
 				initMessageSource();
 
-				// Initialize event multicaster for this context.
+				// 初始化事件管理器
 				initApplicationEventMulticaster();
 
 				// 初始化
@@ -553,7 +553,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				// 注册监听
 				registerListeners();
 
-				// 实例化方法
+				// 实例化方法，ioc、aop 
 				finishBeanFactoryInitialization(beanFactory);
 
 				// Last step: publish corresponding event.
@@ -579,6 +579,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			finally {
 				// Reset common introspection caches in Spring's core, since we
 				// might not ever need metadata for singleton beans anymore...
+
 				resetCommonCaches();
 			}
 		}
